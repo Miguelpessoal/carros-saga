@@ -248,13 +248,8 @@ return [
         ],
         ['header' => 'Menu'],
         [
-            'text' => 'Home',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-caravan',
-        ],
-        [
-            'text' => 'Gerenciar Empresa',
-            'url'  => 'admin/settings',
+            'text' => 'Minha Empresa',
+            'url'  => '/companies',
             'icon' => 'far fa-building',
         ],
         [
