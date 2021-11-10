@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Home Page')
+@section('title', 'Sua Empresa')
 
 @section('content_header')
 <h1 class="text-center text-dark">Empresas incritas na corporação:</h1>

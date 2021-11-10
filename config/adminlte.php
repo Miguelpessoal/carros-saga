@@ -252,12 +252,12 @@ return [
             'url'  => '/companies',
             'icon' => 'far fa-building',
         ],
-        [
+/*         [
             'text' => 'Alterar Senha',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
+        ], */
+/*         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -294,7 +294,7 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
+        ], */
         ['header' => 'labels'],
         [
             'text'       => 'important',

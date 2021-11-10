@@ -18,9 +18,9 @@ class CreateCompaniesTable extends Migration
             $table->string('social_reason');
             $table->string('fantasy_name');
             $table->string('cnpj');
-            $table->string('adress');
+            $table->string('address');
             $table->string('district');   
-            $table->integer('adress_number');
+            $table->integer('address_number');
             $table->string('phone'); 
             $table->string('email');
             $table->timestamps();
