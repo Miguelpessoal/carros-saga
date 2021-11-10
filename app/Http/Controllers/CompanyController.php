@@ -11,6 +11,7 @@ class CompanyController extends Controller
     public function index(Request $request)
     {
         $companies = Company::all();
+        
         return view('Company.index', compact('companies'));
     }
 
@@ -25,12 +26,19 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         Company::create($request->all());
+        
         return redirect()->route('companies.index');  
     }
 
     public function show(Company $company)
     {
-        return view('Company.show');
+        if(!$company=Company::find($company->id)){
+            return redirect()->route('companies.index');
+        }
+        
+        return view('Company.show',[
+            'company' => $company
+        ]);
     }
 
     public function edit(Company $company)

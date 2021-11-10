@@ -36,7 +36,7 @@
             <th scope="row">{{$company->phone}}</th>
             <td>
 
-                <a href="" value="Informar" class="btn btn-outline-info btn-sm">
+                <a href="{{route('companies.show', $company->id)}}" value="Informar" class="btn btn-outline-info btn-sm">
                     <i class="fas fa-info"></i>
                 </a>
                 <a href="{{ route('companies.edit', $company->id) }}" value="Editar"

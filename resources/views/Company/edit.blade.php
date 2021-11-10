@@ -31,12 +31,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Endereço</label>
+                            <label for="">Rua</label>
                             <input type="text" value="{{isset($company) ? $company->address : null}}" name="address" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Estado</label>
+                            <label for="">Cidade/Estado</label>
                             <input type="text" value="{{isset($company) ? $company->district : null}}" name="district" class="form-control">
                         </div>
 

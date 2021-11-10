@@ -2,55 +2,35 @@
 
 @section('title', 'Sua Empresa')
 
+
 @section('content_header')
-<h1 class="text-center text-dark">Empresas incritas na corporação:</h1>
+<h1 class="text-center text-dark">Informações da Empresa: {{ $company->fantasy_name }}</h1>
 <div class="col-sm-12" style="text-align: end;">
-    <a href="/companies/create/" class="btn btn-outline-primary btn-sm">
-        <i class="fas fa-plus"></i>
-    </a>
 </div>
 @stop
 
 @section('content')
-<table class="table table-hover">
-    <thead>
-        @if(session('mensagem'))
-        <div class="alert alert-success">
-            <p>{{session('mensagem')}}</p>
-        </div>
-        @endif
-        <tr>
-            <th scope="col">#ID</th>
-            <th scope="col">Nome Social</th>
-            <th scope="col">Nome de Fantasia</th>
-            <th scope="col">Telefone de Contato</th>
-            <th scope="col">Gerenciar</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($companies as $company)
-        <tr>
-            <th scope="row">{{$company->id}}</th>
-            <th scope="row">{{$company->social_reason}}</th>
-            <th scope="row">{{$company->fantasy_name}}</th>
-            <th scope="row">{{$company->phone}}</th>
-            <td>
-
-                <a href="" value="Informar" class="btn btn-outline-info btn-sm">
-                    <i class="fas fa-info"></i>
-                </a>
-                <a href="{{ route('companies.edit', $company->id) }}" value="Editar"
-                    class="btn btn-outline-success btn-sm">
-                    <i class="far fa-edit"></i></a>
-                <a href="" value="Apagar" class="btn btn-outline-danger btn-sm">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-
-            </td>
-
-
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<ul class="list-group">
+    <li class="list-group-item">#ID: {{ $company->id }}</li>
+    <li class="list-group-item">Nome Social: {{ $company->social_reason }}</li>
+    <li class="list-group-item">Nome Fantasia: {{ $company->fantasy_name }}</li>
+    <li class="list-group-item">CNPJ: {{ $company->cnpj }}</li>
+    <li class="list-group-item">Rua: {{ $company->adress }}</li>
+    <li class="list-group-item">Cidade/Estado: {{ $company->district}}</li>
+    <li class="list-group-item">Número do Endereço: {{ $company->address_number }}</li>
+    <li class="list-group-item">Número de Telefone: {{ $company->phone }}</li>
+    <li class="list-group-item">E-mail: {{ $company->email }}</li>
+    <div class="col-sm-12" style="text-align: end;">
+        <a href="{{ route('companies.index')}}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
+        </a>
+    </div>
+   
+  </ul>
 @stop
+
+{{--  --}}
+
+
+{{-- <ul>
+    <li><strong>Nome Social:  </strong> {{ $company->social_reason }}</li>
+</ul> --}}
