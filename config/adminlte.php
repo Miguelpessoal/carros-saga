@@ -254,7 +254,7 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'url'  => '#',
+            'url'  => '/customers',
             'icon' => 'fas fa-book-reader', 
         ],
 /*         [
