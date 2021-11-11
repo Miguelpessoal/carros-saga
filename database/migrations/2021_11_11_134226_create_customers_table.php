@@ -17,7 +17,7 @@ class CreateCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('cpf')->nullable()->unique();
-            $table->string('cnpj')->unique();
+            $table->string('cnpj')->unique()->nullable();
             $table->string('address');
             $table->string('district');
             $table->integer('address_number');

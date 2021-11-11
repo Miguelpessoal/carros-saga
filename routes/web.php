@@ -25,7 +25,9 @@ Route::get('/home', function() {
 })->name('home')/* ->middleware('auth') */;
 
 Route::resource('companies', 'CompanyController');
+
 Route::resource('customers', 'CustomerController');
+
 Auth::routes();
 
 Route::get('/home', function() {
