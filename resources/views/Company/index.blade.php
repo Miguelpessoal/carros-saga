@@ -40,14 +40,25 @@
             <th scope="row">{{$company->social_reason}}</th>
             <th scope="row">{{$company->fantasy_name}}</th>
             <th scope="row">{{$company->phone}}</th>
-            <td>
+            <td style="display:flex">
 
-                <a href="{{route('companies.show', $company->id)}}" value="Informar" class="btn btn-outline-info btn-sm">
+                <a href="{{route('companies.show', $company->id)}}" title="Informar" class="btn btn-outline-info btn-sm mr-2">
                     <i class="fas fa-info"></i>
                 </a>
-                <a href="{{ route('companies.edit', $company->id) }}" value="Editar"
+                <a href="{{ route('companies.edit', $company->id) }}" title="Editar"
                     class="btn btn-outline-success btn-sm">
-                    <i class="far fa-edit"></i></a>
+                    <i class="far fa-edit"></i>
+                </a>
+                <div class="col-sm-12">
+                <form action={{ route('companies.destroy', $company->id) }} method="post">
+                <button method="post" type="submit" title="Deletar" 
+                    class="btn btn-outline-danger btn-sm">
+                        @csrf
+                        @method('DELETE')
+                        <i class="far fa-trash-alt"></i>
+                </button>
+                </form>
+                </div>
             </td>
 
 

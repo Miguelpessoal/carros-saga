@@ -239,18 +239,23 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Procurar',
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Menu'],
+        ['header' => 'Empresa'],
         [
             'text' => 'Minha Empresa',
             'url'  => '/companies',
             'icon' => 'far fa-building',
+        ],
+        [
+            'text' => 'Clientes',
+            'url'  => '#',
+            'icon' => 'fas fa-book-reader', 
         ],
 /*         [
             'text' => 'Alterar Senha',
