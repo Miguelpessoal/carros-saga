@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('social_reason');
             $table->string('fantasy_name');
-            $table->string('cnpj');
+            $table->string('cnpj')->unique();
             $table->string('address');
             $table->string('district');   
             $table->integer('address_number');

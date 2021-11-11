@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'Pesquisar',
+            'text'         => 'search',
             'topnav_right' => true,
         ],
         [
@@ -239,30 +239,32 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'Procurar',
+            'text' => 'search',
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Empresa'],
         [
-            'text' => 'Minha Empresa',
-            'url'  => '/companies',
-            'icon' => 'far fa-building',
+            'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Clientes',
-            'url'  => '/customers',
-            'icon' => 'fas fa-book-reader', 
-        ],
-/*         [
-            'text' => 'Alterar Senha',
+            'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ], */
-/*         [
+        ],
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -299,23 +301,23 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ], */
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
+        ],
+        ['header' => 'labels'],
+        [
+            'text'       => 'important',
+            'icon_color' => 'red',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'warning',
+            'icon_color' => 'yellow',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'information',
+            'icon_color' => 'cyan',
+            'url'        => '#',
+        ],
     ],
 
     /*

@@ -26,3 +26,8 @@ Route::get('/home', function() {
 
 Route::resource('companies', 'CompanyController');
 Route::resource('customers', 'CustomerController');
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
