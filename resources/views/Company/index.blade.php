@@ -19,6 +19,12 @@
             <p>{{session('mensagem')}}</p>
         </div>
         @endif
+
+        @if(session('aviso'))
+        <div class="alert alert-danger">
+            <p>{{session('aviso')}}</p>
+        </div>
+        @endif
         <tr>
             <th scope="col">#ID</th>
             <th scope="col">Nome Social</th>
@@ -42,10 +48,6 @@
                 <a href="{{ route('companies.edit', $company->id) }}" value="Editar"
                     class="btn btn-outline-success btn-sm">
                     <i class="far fa-edit"></i></a>
-                <a href="" value="Apagar" class="btn btn-outline-danger btn-sm">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-
             </td>
 
 

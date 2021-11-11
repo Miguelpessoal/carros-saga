@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
 {
@@ -57,6 +57,9 @@ class CompanyController extends Controller
 
     public function destroy(Company $company)
     {
-        //
+        DB::table('companies')->where('id', $company->id)->delete();
+        return redirect()
+        ->route('companies.index')
+        ->with('aviso', 'Deletado com sucesso!');
     }
 }

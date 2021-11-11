@@ -15,7 +15,7 @@
     <li class="list-group-item">Nome Social: {{ $company->social_reason }}</li>
     <li class="list-group-item">Nome Fantasia: {{ $company->fantasy_name }}</li>
     <li class="list-group-item">CNPJ: {{ $company->cnpj }}</li>
-    <li class="list-group-item">Rua: {{ $company->adress }}</li>
+    <li class="list-group-item">Rua: {{ $company->address }}</li>
     <li class="list-group-item">Cidade/Estado: {{ $company->district}}</li>
     <li class="list-group-item">Número do Endereço: {{ $company->address_number }}</li>
     <li class="list-group-item">Número de Telefone: {{ $company->phone }}</li>
@@ -24,13 +24,10 @@
         <a href="{{ route('companies.index')}}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
         </a>
     </div>
-   
   </ul>
+  <form action="{{ route('companies.destroy', $company->id) }}" method="post">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-outline-danger">Deletar a empresa: {{$company->fantasy_name}}</button>
+  </form>
 @stop
-
-{{--  --}}
-
-
-{{-- <ul>
-    <li><strong>Nome Social:  </strong> {{ $company->social_reason }}</li>
-</ul> --}}
