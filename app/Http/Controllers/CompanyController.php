@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $companies = Company::all();
         
@@ -16,16 +16,16 @@ class CompanyController extends Controller
     }
 
 
-    public function create(Request $request)
+    public function create()
     {
         $companies = Company::all();
 
         return view('Company.create', compact('companies'));
     }
 
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        Company::create($request->all());
+        Company::create($request->validated());
         
         return redirect()->route('companies.index');  
     }
@@ -46,7 +46,7 @@ class CompanyController extends Controller
         return view('Company.edit', compact('company'));
     }
 
-    public function update(Request $request, Company $company)
+    public function update(CompanyRequest $request, Company $company)
     {
         // $input = $request->all();
         $company->update($request->all());

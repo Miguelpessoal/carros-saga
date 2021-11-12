@@ -21,21 +21,21 @@
                             <div class="form-group">
                                 <label for="">Nome Social</label>
                                 <input type="text" value="{{ isset($company) ? $company->social_reason : null }}"
-                                    name="social_reason" class="form-control">
+                                    name="social_reason" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Nome Fantasia</label>
                                 <input type="text" value="{{ isset($company) ? $company->fantasy_name : null }}"
-                                    name="fantasy_name" class="form-control">
+                                    name="fantasy_name" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">CNPJ</label>
-                                <input type="text" value="{{ isset($company) ? $company->cnpj : null }}" name="cnpj"
-                                    class="form-control">
+                                <input type="text" value="{{ isset($company) ? $company->cnpj : null }}" 
+                                name="cnpj" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -45,21 +45,21 @@
                             <div class="form-group">
                                 <label for="">Rua</label>
                                 <input type="text" value="{{ isset($company) ? $company->address : null }}"
-                                    name="address" class="form-control">
+                                    name="address" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Cidade/Estado</label>
                                 <input type="text" value="{{ isset($company) ? $company->district : null }}"
-                                    name="district" class="form-control">
+                                    name="district" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Número do Endereço</label>
                                 <input type="integer" value="{{ isset($company) ? $company->address_number : null }}"
-                                    name="address_number" class="form-control">
+                                    name="address_number" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -68,16 +68,16 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Telefone</label>
-                                <input type="text" value="{{ isset($company) ? $company->phone : null }}" name="phone"
-                                    class="form-control">
+                                <input type="text" value="{{ isset($company) ? $company->phone : null }}" 
+                                name="phone" class="form-control" required>
                             </div>
 
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="text" value="{{ isset($company) ? $company->email : null }}" name="email"
-                                    class="form-control">
+                                <input type="text" value="{{ isset($company) ? $company->email : null }}" 
+                                name="email" class="form-control" required>
                             </div>
                         </div>
                     </div>
