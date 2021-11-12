@@ -220,7 +220,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Empresa'],
+        ['header' => 'Menu de Gerenciamento'],
         [
             'text' => 'Minha Empresa',
             'url'  => '/companies',
@@ -228,9 +228,13 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'url'  => '#',
             'url'  => '/customers',
             'icon' => 'fas fa-book-reader', 
+        ],
+        [
+            'text' => 'Carros',
+            'url'  => '/cars',
+            'icon' => 'fas fa-car-side',
         ],
 /*         [
             'text' => 'Alterar Senha',

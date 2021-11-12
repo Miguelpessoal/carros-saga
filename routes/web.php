@@ -28,6 +28,8 @@ Route::resource('companies', 'CompanyController');
 
 Route::resource('customers', 'CustomerController');
 
+Route::resource('cars','CarController');
+
 Auth::routes();
 
 Route::get('/home', function() {
