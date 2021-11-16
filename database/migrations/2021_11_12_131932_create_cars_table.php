@@ -23,7 +23,7 @@ class CreateCarsTable extends Migration
             $table->integer('km');
             $table->decimal('value');
             $table->boolean('safe');
-            $table->string('insurance_company');
+            $table->string('insurance_company')->nullable();
             $table->text('car_situation');
             $table->string('fuel');
             $table->timestamps();

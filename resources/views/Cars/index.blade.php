@@ -44,9 +44,10 @@
                     <th scope="row">{{ $car->id }}</th>
                     <th scope="row">{{ $car->name }}</th>
                     <th scope="row">{{ $car->brand }}</th>
+                    <th scope="row">{{ $car->color }}</th>
                     <th scope="row">{{ $car->board }}</th>
                     <th scope="row">{{ $car->year }}</th>
-                    <th scope="row">{{ $car->safe }}</th>
+                    <th scope="row">{{ $car->safe ? 'Sim':'Não'}}</th>
                     <td style="display:flex">
 
                         <a href="{{ route('cars.show', $car->id) }}" title="Informar"
@@ -55,6 +56,9 @@
                         </a>
                         <a href="{{ route('cars.edit', $car->id) }}" title="Editar" class="btn btn-outline-success btn-sm">
                             <i class="far fa-edit"></i>
+                        </a>
+                        <a src="{{url("storage/cars/{$car->image}")}}" title="Visualizar" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-eye"></i>
                         </a>
                         <div class="col-sm-12">
                             <form action={{ route('cars.destroy', $car->id) }} method="post">

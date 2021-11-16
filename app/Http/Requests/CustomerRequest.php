@@ -11,8 +11,8 @@ class CustomerRequest extends FormRequest
     {
         return [
             'name'          => 'required|max:255',
-            'cpf'           => 'required|unique|max:14',
-            'cnpj'          => 'nullable|unique|max:18', 
+            'cpf'           => 'required_without:cnpj|unique:customers,cpf|max:14',
+            'cnpj'          => 'required_without:cpf|unique:customers,cnpj|max:18', 
             'address'       => 'required|',
             'district'      => 'required',
             'address_number'=> 'required|numeric',
