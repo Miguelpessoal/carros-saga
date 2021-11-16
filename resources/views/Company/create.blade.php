@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label for="">CNPJ</label>
                             <input type="text" value="{{ isset($company) ? $company->cnpj : null }}" name="cnpj"
-                                class="form-control" required>>
+                                class="form-control" required>
                         </div>
                     </div>
                 </div>
