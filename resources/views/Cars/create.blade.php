@@ -5,16 +5,7 @@
 @section('content_header')
     <h1 class="text-center">Adicionar novo Carro</h1>
 @stop
-@if (Session::has('errors'))
-@foreach (Session::get('errors')->messages() as $errors)
-@foreach ($errors as $error)
-    
-<div class="alert alert-danger">
-    <p>{{ $error}}</p>
-</div>
-@endforeach
-@endforeach
-@endif
+
 @section('content')
     <div class="card">
         <div class="card-body">

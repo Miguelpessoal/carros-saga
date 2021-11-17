@@ -3,17 +3,20 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class CarRequest extends FormRequest
+class UpdateCarRequest extends FormRequest
 {
     public function rules()
     {
-        
         return [
             'name' => 'required|max:255',
             'brand' => 'required|max:255',
             'color' => 'required|max:255',
-            'board'=>'required|unique:cars,board|max:255',
+            'board' => [
+                'required',
+                Rule::unique('cars')->ignore($this->route('car')->id),'max:7'
+            ],
             'year' => 'required|numeric|max:9999',
             'km' => 'required|numeric',
             'value' => 'required|numeric',

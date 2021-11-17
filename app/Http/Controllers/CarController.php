@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CarRequest;
+use App\Http\Requests\StoreCarRequest;
+use App\Http\Requests\UpdateCarRequest;
 use App\Models\Car;
 use App\Models\Document;
 use Illuminate\Support\Facades\DB;
@@ -19,12 +21,10 @@ class CarController extends Controller
 
     public function create()
     {
-        $cars = Car::all();
-        
-        return view('Cars.create', compact('cars'));
+        return view('Cars.create');
     }
 
-    public function store(CarRequest $request)
+    public function store(StoreCarRequest $request)
     {
         $formData = $request->validated();
         
@@ -49,22 +49,26 @@ class CarController extends Controller
 
     public function show()
     {
-        //
+        return view('Cars.show');
     }
 
-    public function edit()
+    public function edit(Car $car)
     {
-        // 
+        return view('Cars.edit', compact('car'));
     }
+   
 
-    public function update()
+    public function update(UpdateCarRequest $request, Car $car)
     {
-        //
+        $car->update($request->validated());
+        return redirect()
+        ->route('cars.index')
+        ->with('mensagem', 'Atualizado com sucesso!');
     }
 
     public function destroy(Car $car)
     {
-        DB::table('cars')->where('id', $car->id)->delete();
+     $car->delete();
         return redirect()
         ->route('cars.index')
         ->with('aviso', 'Carro removido com sucesso!');

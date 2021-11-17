@@ -3,16 +3,24 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class CustomerRequest extends FormRequest
+class UpdateCustomerRequest extends FormRequest
 {
 
     public function rules()
     {
         return [
-            'name'          => 'required|max:255',
-            'cpf'           => 'required_without:cnpj|unique:customers,cpf|max:14',
-            'cnpj'          => 'required_without:cpf|unique:customers,cnpj|max:18', 
+            'name'          => 'required|max:255',            'cpf'           => 'required_without:cnpj|unique:customers,cpf|max:14',
+            'cpf' => [
+                'required_without:cnpj',
+                Rule::unique('customers')->ignore($this->route('customer')->id),'max:14'
+            ],
+
+            'cnpj' => [
+                'required_without:cpf',
+                Rule::unique('customers')->ignore($this->route('customer')->id),'max:18'
+            ],
             'address'       => 'required|',
             'district'      => 'required',
             'address_number'=> 'required|numeric',
@@ -25,7 +33,8 @@ class CustomerRequest extends FormRequest
     {
         return [
         'name.required'          => 'Informe um Nome',
-        'cpf.required'           => 'Informe um CPF',
+        'cpf.required_without'   => 'Informe um CPF',
+        'cnpj.required_without'  => 'Informe um CNPJ',
         'cpf.unique'             => 'CPF já cadastrado',
         'cnpj.unique'            => 'CNPJ já cadastrado',
         'address'                => 'Informe um Endereço',

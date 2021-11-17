@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
+use App\Http\Requests\StoreCustomerRequest;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,7 @@ class CustomerController extends Controller
         return view('Customers.create', compact('customers'));
     }
 
-    public function store(CustomerRequest $request)
+    public function store(StoreCustomerRequest $request)
     {
         Customer::create($request->validated());
 
@@ -47,7 +48,7 @@ class CustomerController extends Controller
         return view('Customers.edit', compact('customer'));
     }
 
-    public function update(CustomerRequest $request, Customer $customer)
+    public function update(UpdateCustomerRequest $request, Customer $customer)
     {
         $customer->update($request->all());
         return redirect()

@@ -4,15 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyRequest extends FormRequest
+class StoreCustomerRequest extends FormRequest
 {
 
     public function rules()
     {
         return [
-            'social_reason' => 'required',
-            'fantasy_name'  => 'required',
-            'cnpj'          => 'required|unique:companies,cnpj',
+            'name' => 'required|max:255',            
+            'cpf' => 'required_without:cnpj|unique:customers,cpf|max:14',
+            'cnpj' => 'required_without:cpf|unique:customers,cpf|max:18',
             'address'       => 'required|',
             'district'      => 'required',
             'address_number'=> 'required|numeric',
@@ -24,9 +24,10 @@ class CompanyRequest extends FormRequest
     public function messages()
     {
         return [
-        'social_reason.required' => 'Informe um Nome Social',
-        'fantasy_name.required'  => 'Informe um Nome Fantasia',
-        'cnpj.required'          => 'Informe um CNPJ',
+        'name.required'          => 'Informe um Nome',
+        'cpf.required_without'   => 'Informe um CPF',
+        'cnpj.required_without'  => 'Informe um CNPJ',
+        'cpf.unique'             => 'CPF já cadastrado',
         'cnpj.unique'            => 'CNPJ já cadastrado',
         'address'                => 'Informe um Endereço',
         'district.required'      => 'Informe sua (Cidade/Estado)',

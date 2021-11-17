@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CompanyRequest;
+
+use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +25,7 @@ class CompanyController extends Controller
         return view('Company.create', compact('companies'));
     }
 
-    public function store(CompanyRequest $request)
+    public function store(StoreCompanyRequest $request)
     {
         Company::create($request->validated());
         
@@ -46,7 +48,7 @@ class CompanyController extends Controller
         return view('Company.edit', compact('company'));
     }
 
-    public function update(CompanyRequest $request, Company $company)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
         // $input = $request->all();
         $company->update($request->all());
