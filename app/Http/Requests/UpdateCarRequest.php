@@ -15,7 +15,7 @@ class UpdateCarRequest extends FormRequest
             'color' => 'required|max:255',
             'board' => [
                 'required',
-                Rule::unique('cars')->ignore($this->route('car')->id),'max:7'
+                Rule::unique('cars')->ignore($this->route('car')->id),
             ],
             'year' => 'required|numeric|max:9999',
             'km' => 'required|numeric',

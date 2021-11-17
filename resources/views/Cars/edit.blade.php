@@ -40,14 +40,14 @@
                     <div class="form-group">
                         <label for="">Placa</label>
                         <input type="text" value="{{ isset($car) ? $car->board : null }}" 
-                        name="address" class="form-control">
+                        name="board" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="">Ano</label>
                         <input type="text" value="{{ isset($car) ? $car->year : null }}" 
-                        name="district" class="form-control">
+                        name="year" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-4">

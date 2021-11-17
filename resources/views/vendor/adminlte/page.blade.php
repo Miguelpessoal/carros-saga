@@ -12,16 +12,7 @@
 @section('body_data', $layoutHelper->makeBodyData())
 
 @section('body')
-@if (Session::has('errors'))
-@foreach (Session::get('errors')->messages() as $errors)
-@foreach ($errors as $error)
-    
-<div class="alert alert-danger">
-    <p>{{ $error}}</p>
-</div>
-@endforeach
-@endforeach
-@endif
+
     <div class="wrapper">
 
         {{-- Top Navbar --}}
