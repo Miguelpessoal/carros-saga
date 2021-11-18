@@ -43,8 +43,8 @@
             <td style="display:flex">
 
                 <a href="{{route('customers.show', $customer->id)}}" title="Informar"
-                    class="btn btn-outline-info btn-sm mr-2">
-                    <i class="fas fa-info"></i>
+                    class="btn btn-outline-primary btn-sm mr-2">
+                    <i class="fas fa-eye"></i>
                 </a>
                 <a href="{{ route('customers.edit', $customer->id) }}" title="Editar"
                     class="btn btn-outline-success btn-sm">

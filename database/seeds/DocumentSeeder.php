@@ -1,7 +1,6 @@
 <?php
 
-use App\DocumentType;
-use App\Models\Document;
+use App\Models\DocumentType;
 use Illuminate\Database\Seeder;
 
 class DocumentSeeder extends Seeder

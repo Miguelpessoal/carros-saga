@@ -17,10 +17,10 @@ class CreateDocumentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedBigInteger('document_type_id');
-            $table->foreign('document_type_id')->references('id')->on('documents');
+            $table->foreign('document_type_id')->references('id')->on('document_types');
             $table->string('path');
             $table->unsignedBigInteger('car_id');
-            $table->foreign('car_id')->references('id')->on('cars');
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->timestamps();
         });
     }

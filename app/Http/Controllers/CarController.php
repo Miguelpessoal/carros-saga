@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CarRequest;
+
 use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
 use App\Models\Car;
 use App\Models\Document;
-use Illuminate\Support\Facades\DB;
 
 class CarController extends Controller
 {
@@ -33,23 +32,25 @@ class CarController extends Controller
         $car = Car::create($formData);
 
         if ($request->hasFIle('image') && $request->image->isValid()) {
-            $imagePath = $request->image->store('cars');
-          
-           Document::create([
-               'car_id' => $car->id,
-               'path' => $imagePath,
-               'title' => $request->image->getClientOriginalName(),
-               'type' => 2
-           ]);
+            $originalNameFile = $request->image->getClientOriginalName();
+            $imagePath = $request->image->store('cars','public');
+            
+            Document::create([
+                'car_id' => $car->id,
+                'path' => DIRECTORY_SEPARATOR .'storage'.DIRECTORY_SEPARATOR.$imagePath,
+                'title' => $originalNameFile,
+                'document_type_id' => 2
+            ]);
         }
 
 
         return redirect()->route('cars.index');
     }
 
-    public function show()
+    public function show(Car $car)
     {
-        return view('Cars.show');
+        $documents = $car->documents;
+        return view('Cars.show', compact('car', 'documents'));
     }
 
     public function edit(Car $car)

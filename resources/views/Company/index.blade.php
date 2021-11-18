@@ -42,8 +42,8 @@
             <th scope="row">{{$company->phone}}</th>
             <td style="display:flex">
 
-                <a href="{{route('companies.show', $company->id)}}" title="Informar" class="btn btn-outline-info btn-sm mr-2">
-                    <i class="fas fa-info"></i>
+                <a href="{{route('companies.show', $company->id)}}" title="Visualizar" class="btn btn-outline-primary btn-sm mr-2">
+                    <i class="fas fa-eye"></i>
                 </a>
                 <a href="{{ route('companies.edit', $company->id) }}" title="Editar"
                     class="btn btn-outline-success btn-sm">

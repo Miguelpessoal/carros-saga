@@ -50,15 +50,12 @@
                     <th scope="row">{{ $car->safe ? 'Sim':'Não'}}</th>
                     <td style="display:flex">
 
-                        <a href="{{ route('cars.show', $car->id) }}" title="Informar"
-                            class="btn btn-outline-info btn-sm mr-2">
-                            <i class="fas fa-info"></i>
+                        <a href="{{ route('cars.show', $car->id) }}" title="Visualizar"
+                            class="btn btn-outline-primary btn-sm mr-2">
+                            <i class="fas fa-eye"></i>
                         </a>
                         <a href="{{ route('cars.edit', $car->id) }}" title="Editar" class="btn btn-outline-success btn-sm">
                             <i class="far fa-edit"></i>
-                        </a>
-                        <a src="{{url("storage/cars/{$car->image}")}}" title="Visualizar" class="btn btn-outline-primary btn-sm">
-                            <i class="fas fa-eye"></i>
                         </a>
                         <div class="col-sm-12">
                             <form action={{ route('cars.destroy', $car->id) }} method="post">
