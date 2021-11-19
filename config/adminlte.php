@@ -220,82 +220,77 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Menu de Gerenciamento'],
         [
-            'text' => 'Minha Empresa',
-            'url'  => '/companies',
-            'icon' => 'far fa-building',
-        ],
-        [
-            'text' => 'Clientes',
-            'url'  => '/customers',
-            'icon' => 'fas fa-book-reader', 
-        ],
-        [
-            'text' => 'Carros',
-            'url'  => '/cars',
-            'icon' => 'fas fa-car-side',
-        ],
-/*         [
-            'text' => 'Alterar Senha',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ], */
-/*         [
-            'text'    => 'multilevel',
+            'text'    => 'Menu Empresarial',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Minha Empresa',
+                    'url'  => '/companies',
+                    'icon' => 'far fa-building',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
+                            'text' => 'Clientes',
+                            'url'  => '/customers',
+                            'icon' => 'fas fa-book-reader', 
+                        
+                ],
+                [
+                            'text' => 'Carros',
+                            'url'  => '/cars',
+                            'icon' => 'fas fa-car-side',
+                ],
+
                     ],
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
             ],
-        ], */
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
-    ],
+    //             [
+    //                 'text'    => 'level_one',
+    //                 'url'     => '#',
+    //                 'submenu' => [
+    //                     [
+    //                         'text' => 'level_two',
+    //                         'url'  => '#',
+    //                     ],
+    //                     [
+    //                         'text'    => 'level_two',
+    //                         'url'     => '#',
+    //                         'submenu' => [
+    //                             [
+    //                                 'text' => 'level_three',
+    //                                 'url'  => '#',
+    //                             ],
+    //                             [
+    //                                 'text' => 'level_three',
+    //                                 'url'  => '#',
+    //                             ],
+    //                         ],
+    //                     ],
+    //                 ],
+    //             ],
+    //             [
+    //                 'text' => 'level_one',
+    //                 'url'  => '#',
+    //             ],
+    //         ],
+    //     ], 
+    //     ['header' => 'labels'],
+    //     [
+    //         'text'       => 'important',
+    //         'icon_color' => 'red',
+    //         'url'        => '#',
+    //     ],
+    //     [
+    //         'text'       => 'warning',
+    //         'icon_color' => 'yellow',
+    //         'url'        => '#',
+    //     ],
+    //     [
+    //         'text'       => 'information',
+    //         'icon_color' => 'cyan',
+    //         'url'        => '#',
+    //     ],
+    // ],
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

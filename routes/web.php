@@ -30,6 +30,8 @@ Route::resource('customers', 'CustomerController');
 
 Route::resource('cars','CarController');
 
+Route::resource('cars.rents','RentController')->except('index', 'show');
+
 Auth::routes();
 
 Route::get('/home', function() {

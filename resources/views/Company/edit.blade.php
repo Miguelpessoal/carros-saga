@@ -3,7 +3,7 @@
 @section('title', 'Editar empresas')
 
 @section('content_header')
-<h1 class="m-0 text-dark">Edição dos dados empresariais:</h1>
+<h1 class="m-0 text-dark"><strong>Edição dos dados empresariais:</strong></h1>
 @stop
 
 @section('content')

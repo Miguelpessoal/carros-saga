@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1 class="text-center text-dark">Informações do Cliente: {{ $customer->name }}</h1>
+<h1 class="text-center text-dark"><strong>Informações do Cliente: </strong>{{ $customer->name }}</h1>
 <div class="col-sm-12" style="text-align: end;">
 </div>
 @stop

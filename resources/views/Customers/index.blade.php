@@ -3,7 +3,7 @@
 @section('title', 'Clientes Page')
 
 @section('content_header')
-<h1 class="text-center text-dark">Seus Clientes:</h1>
+<h1 class="text-center text-dark"><strong>Seus Clientes:</strong></h1>
 <div class="col-sm-12" style="text-align: end;">
     <a href="/customers/create" class="btn btn-outline-primary btn-sm">
         <i class="fas fa-plus"></i>

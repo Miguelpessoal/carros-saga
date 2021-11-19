@@ -15,4 +15,14 @@ class Car extends Model
         return $this->hasMany('App\Models\Document');
     }
     
+    public function rents()
+    {
+        // return $this->hasMany('App\Models\Rent');
+        return $this->hasMany(Rent::class);
+    }
+
+    public function getIsAvailableAttribute()
+    {
+        return !$this->rents()->where('finished', false)->count();
+    }
 }

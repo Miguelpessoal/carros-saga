@@ -3,7 +3,7 @@
 @section('title', 'Editar Carro')
 
 @section('content_header')
-<h1 class="m-0 text-dark">Edição do carro:</h1>
+<h1 class="m-0 text-dark text-center"><strong>Edição do carro:</strong></h1>
 @stop
 
 @section('content')
