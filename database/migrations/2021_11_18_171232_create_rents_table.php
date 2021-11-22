@@ -12,6 +12,8 @@ class CreateRentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('car_id');
             $table->foreign('car_id')->references('id')->on('cars');
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->datetime('rent_data');
             $table->datetime('devolution_data');
             $table->decimal('value');

@@ -58,7 +58,7 @@
                         <a href="{{ route('cars.edit', $car->id) }}" title="Editar" class="btn btn-outline-success btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
-                        <a href="" title="Alugar" class="btn btn-outline-info btn-sm">
+                        <a href="{{route ('cars.rents.create', $car)}} " title="Alugar" class="btn btn-outline-info btn-sm">
                             <i class="fas fa-comments-dollar"></i>
                         </a>
                         <div class="col-sm-12">

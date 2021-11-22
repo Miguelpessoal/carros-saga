@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label for="">Assegurado</label>
                             <input type="checkbox" value="{{ isset($car) ? $car->safe : null }}" class="form-control"
-                                name="safe" >
+                                name="safe">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -99,7 +99,9 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-success">Cadastrar</button>
+                <div class="form-group" style="text-align: end;">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                </div>
             </form>
         </div>
     </div>

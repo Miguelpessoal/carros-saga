@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Customer;
 
 class RentController extends Controller
 {
@@ -13,9 +14,11 @@ class RentController extends Controller
         return view('Rents.index', compact('cars'));
     }
 
-    public function create()
+    public function create(Car $car)
     {
-        //
+        $customers = Customer::all();
+
+        return view('Rents.create', compact('customers', 'car'));
     }
 
     public function store()
