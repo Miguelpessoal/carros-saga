@@ -237,8 +237,19 @@ return [
                 ],
                 [
                     'text' => 'Carros',
-                    'url'  => '/cars',
                     'icon' => 'fas fa-car-side',
+                    'submenu' => [
+                        [
+                            'text' => 'Todos os Carros',
+                            'url' => '/cars',
+                            'icon' => 'fas fa-car-alt',
+                        ],
+                        [
+                            'text' => 'Aluguéis',
+                            'url' => '/rents',
+                            'icon' => 'fas fa-id-card',
+                        ],
+                    ],
                 ],
 
             ],

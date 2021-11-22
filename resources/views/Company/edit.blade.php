@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-group" style="text-align: end;">>
+                        <div class="form-group" style="text-align: end;">
                             <button type="submit" class="btn btn-success">Atualizar</button>
                         </div>
 

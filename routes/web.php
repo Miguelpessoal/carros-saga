@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();  //Utilizar geralmente o facades.
 
-Route::get('/home', function() {
+Route::get('/home', function () {
     return view('home');
 })->name('home')/* ->middleware('auth') */;
 
@@ -28,12 +28,14 @@ Route::resource('companies', 'CompanyController');
 
 Route::resource('customers', 'CustomerController');
 
-Route::resource('cars','CarController');
+Route::resource('cars', 'CarController');
 
-Route::resource('cars.rents','RentController')->except('index', 'show');
+Route::resource('cars.rents', 'RentController')->except('index', 'show', 'edit', 'destroy');
+
+Route::resource('rents', 'RentController')->only('index', 'edit', 'destroy');
 
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware('auth');

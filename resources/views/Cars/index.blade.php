@@ -28,7 +28,7 @@
                 </div>
             @endif
             <tr>
-                <th scope="col">#ID</th>
+                <th scope="col">Código</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Cor</th>
@@ -48,17 +48,25 @@
                     <th scope="row">{{ $car->color }}</th>
                     <th scope="row">{{ $car->board }}</th>
                     <th scope="row">{{ $car->year }}</th>
-                    <th scope="row"> <spam class="label text-{{ $car->safe ? 'success':'danger'}}">{{ $car->safe ? 'Sim':'Não'}}</spam></th>
-                    <th scope="row"><spam class="label text-{{ $car->isAvailable ? 'success':'danger'}}">{{ $car->isAvailable ? 'Sim':'Não'}}</spam></th>
+                    <th scope="row">
+                        <spam class="label text-{{ $car->safe ? 'success' : 'danger' }}">{{ $car->safe ? 'Sim' : 'Não' }}
+                        </spam>
+                    </th>
+                    <th scope="row">
+                        <spam class="label text-{{ $car->isAvailable ? 'success' : 'danger' }}">
+                            {{ $car->isAvailable ? 'Sim' : 'Não' }}</spam>
+                    </th>
                     <td style="display:flex">
                         <a href="{{ route('cars.show', $car->id) }}" title="Visualizar"
                             class="btn btn-outline-primary btn-sm mr-2">
                             <i class="fas fa-eye"></i>
                         </a>
-                        <a href="{{ route('cars.edit', $car->id) }}" title="Editar" class="btn btn-outline-success btn-sm">
+                        <a href="{{ route('cars.edit', $car->id) }}" title="Editar"
+                            class="btn btn-outline-success btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
-                        <a href="{{route ('cars.rents.create', $car)}} " title="Alugar" class="btn btn-outline-info btn-sm">
+                        <a href="{{ route('cars.rents.create', $car) }} " title="Alugar"
+                            class="btn btn-outline-info btn-sm">
                             <i class="fas fa-comments-dollar"></i>
                         </a>
                         <div class="col-sm-12">

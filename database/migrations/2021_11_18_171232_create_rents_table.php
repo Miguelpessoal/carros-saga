@@ -14,17 +14,18 @@ class CreateRentsTable extends Migration
             $table->foreign('car_id')->references('id')->on('cars');
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->datetime('rent_data');
-            $table->datetime('devolution_data');
+            $table->datetime('rent_date');
+            $table->datetime('forecast_devolution_date');
+            $table->datetime('devolution_date')->nullable();
             $table->decimal('value');
             $table->bigInteger('km_traveled');
-            $table->bigInteger('km_finish');
+            $table->bigInteger('km_finish')->nullable();
             $table->boolean('finished');
             $table->string('description');
             $table->timestamps();
         });
     }
- 
+
     public function down()
     {
         Schema::dropIfExists('rents');
