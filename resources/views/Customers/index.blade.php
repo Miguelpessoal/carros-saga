@@ -52,7 +52,8 @@
                         </a>
                         <div class="col-sm-12">
                             <form action={{ route('customers.destroy', $customer->id) }} method="post">
-                                <button method="post" type="submit" title="Deletar" class="btn btn-outline-danger btn-sm">
+                                <button onclick="return confirm('Deseja realmente deletar?');" method="post" type="submit"
+                                    title="Deletar" class="btn btn-outline-danger btn-sm">
                                     @csrf
                                     @method('DELETE')
                                     <i class="far fa-trash-alt"></i>
