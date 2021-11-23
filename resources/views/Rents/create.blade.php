@@ -47,8 +47,8 @@
                     <div class="col-sm-6" hidden>
                         <div class="form-group">
                             <label for="">KM Entregue</label>
-                            <input type="text" value="{{ isset($rent) ? $rent->km_traveled : null }}"
-                                class="form-control" name="km_finish">
+                            <input type="text" value="{{ isset($rent) ? $rent->km_finish : null }}" class="form-control"
+                                name="km_finish">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -85,5 +85,7 @@
             $('.js-example-basic-single').select2();
         });
     </script>
+
+
 @endsection
 @stop

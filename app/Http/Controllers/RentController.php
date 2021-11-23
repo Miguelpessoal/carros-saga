@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RentRequest;
 use App\Http\Requests\StoreRentRequest;
 use App\Http\Requests\UpdateRentRequest;
 use App\Models\Car;
@@ -57,10 +56,9 @@ class RentController extends Controller
 
     public function destroy(Rent $rent)
     {
-        $rent = Rent::find($rent->id);
         $rent->delete();
         return redirect()
-            ->route('rents.index')
-            ->with('mensagem', 'Devolvido com sucesso!');
+            ->route('cars.index')
+            ->with('aviso', 'Aluguel encerrado com sucesso!');
     }
 }

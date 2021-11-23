@@ -41,7 +41,8 @@
                             <i class="fas fa-edit"></i>
                         </a>
                         <form action="{{ route('rents.destroy', $rent->id) }}" method="post">
-                            <button title="Devolver" type="submit" class="btn btn-outline-danger btn-sm mr-2">
+                            <button onclick="return confirm('Confirmar devolução?');" title="Devolver" type="submit"
+                                class="btn btn-outline-danger btn-sm mr-2">
                                 @csrf
                                 @method('DELETE')
                                 <i class="fas fa-undo-alt"></i>

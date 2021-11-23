@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rent extends Model
 {
-    use SoftDeletes;
-
     protected $guarded = ['id'];
-
-    protected $dates = ['deleted_at'];
 
     public function car()
     {
