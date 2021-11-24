@@ -24,14 +24,14 @@
                         <div class="form-group">
                             <label for="">CPF</label>
                             <input type="text" value="{{ isset($customer) ? $customer->cpf : null }}" name="cpf"
-                                class="form-control" required>
+                                class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">CNPJ</label>
                             <input type="text" value="{{ isset($customer) ? $customer->cnpj : null }}" name="cnpj"
-                                class="form-control" required>
+                                class="form-control">
                         </div>
                     </div>
                 </div>

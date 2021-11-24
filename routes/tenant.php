@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 /*
@@ -18,13 +19,24 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 |
 */
 
-Route::middleware([
+Route::namespace('App\Http\Controllers')->middleware([
     'web',
-    InitializeTenancyByDomain::class,
+    InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::get('/', function () {
-        dd(\App\User::all());
-        return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
-    });
+    Auth::routes();
+
+    Route::view('/', 'welcome');
+
+    Route::resource('companies', 'CompanyController');
+
+    Route::resource('customers', 'CustomerController');
+
+    Route::resource('cars', 'CarController');
+
+    Route::resource('cars.rents', 'RentController')->except('index', 'show', 'edit', 'destroy');
+
+    Route::resource('rents', 'RentController')->only('index', 'edit', 'destroy');
+
+    Route::view('home', 'home')->name('home')->middleware('auth');
 });

@@ -6,6 +6,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        return $this->call(LandLordSeeder::class);
+        return $this->call(DocumentSeeder::class);
     }
 }
