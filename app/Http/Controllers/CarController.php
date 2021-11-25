@@ -67,10 +67,9 @@ class CarController extends Controller
     {
         $formData = $request->validated();
 
-        $formData['safe'] = $request->has('safe');
+        $images = $request->file('images') ?? [];
 
-
-        foreach ($request->file('images') as $image) {
+        foreach ($images as $image) {
             $filePath = $uploadFileService->upload($image, 'cars');
 
             if (!$filePath) {

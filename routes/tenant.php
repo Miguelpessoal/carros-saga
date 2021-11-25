@@ -38,5 +38,7 @@ Route::namespace('App\Http\Controllers')->middleware([
 
     Route::resource('rents', 'RentController')->only('index', 'edit', 'destroy');
 
+    Route::resource('documents', 'DocumentController')->only('destroy');
+
     Route::view('home', 'home')->name('home')->middleware('auth');
 });

@@ -7,9 +7,14 @@
 @stop
 
 @section('content')
+    @if (session('aviso'))
+        <div class="alert alert-danger">
+            <p>{{ session('aviso') }}</p>
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
-            <form action={{ route('cars.update', $car->id) }} method="post">
+            <form action={{ route('cars.update', $car->id) }} method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -99,35 +104,38 @@
                 </div>
                 <br />
                 <br />
-                <table class="table table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Arquivo</th>
-                            <th scope="col">Data de Criação</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($car->documents as $document)
-                            <tr>
-                                <th scope="row">{{ $document->title }}</th>
-                                <th scope="row">{{ $document->created_at }}</th>
-                                <th scope="row">
-                                    <a href="{{ route('cars.edit', $car->id) }}" title="Remover"
-                                        class="btn btn-outline-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-
-                                </th>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
                 <br>
                 <div class="form-group" style="text-align: end;">
                     <button type="submit" class="btn btn-success">Atualizar</button>
                 </div>
             </form>
+            <table class="table table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Arquivo</th>
+                        <th scope="col">Data de Criação</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($car->documents as $document)
+                        <tr>
+                            <th scope="row">{{ $document->title }}</th>
+                            <th scope="row">{{ $document->created_at }}</th>
+                            <th scope="row">
+                                <form action={{ route('documents.destroy', $document->id) }} method="post">
+                                    <button onclick="return confirm('Deseja realmente deletar?');" method="post"
+                                        type="submit" title="Deletar" class="btn btn-outline-danger btn-sm">
+                                        @csrf
+                                        @method('DELETE')
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </th>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 @stop
