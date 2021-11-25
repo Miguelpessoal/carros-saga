@@ -11,7 +11,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-    'title' => 'AdminLTE 3',
+    'title' => 'Saga Carros',
     'title_prefix' => '',
     'title_postfix' => '',
     /*

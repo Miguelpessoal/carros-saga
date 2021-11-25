@@ -7,6 +7,11 @@
 @stop
 
 @section('content')
+    @if (session('aviso'))
+        <div class="alert alert-danger">
+            <p>{{ session('aviso') }}</p>
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
             <form action={{ route('cars.store') }} method="post" enctype="multipart/form-data">
@@ -95,7 +100,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="">Fotos do Carro</label>
-                        <input type="file" name="image" class="form-control">
+                        <input required type="file" class="form-control" name="images[]" placeholder="imagens" multiple>
                     </div>
                 </div>
                 <br>

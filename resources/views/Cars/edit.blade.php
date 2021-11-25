@@ -17,21 +17,21 @@
                         <div class="form-group">
                             <label for="">Modelo</label>
                             <input type="text" value="{{ isset($car) ? $car->name : null }}" name="name"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Marca</label>
                             <input type="text" value="{{ isset($car) ? $car->brand : null }}" name="brand"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Cor</label>
                             <input type="text" value="{{ isset($car) ? $car->color : null }}" name="color"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -40,21 +40,21 @@
                         <div class="form-group">
                             <label for="">Placa</label>
                             <input type="text" value="{{ isset($car) ? $car->board : null }}" name="board"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Ano</label>
                             <input type="text" value="{{ isset($car) ? $car->year : null }}" name="year"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Quilometragem</label>
                             <input type="integer" value="{{ isset($car) ? $car->km : null }}" name="km"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label for="">Valor</label>
                             <input type="text" value="{{ isset($car) ? $car->value : null }}" name="value"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -85,14 +85,44 @@
                     <div class="col-sm-9">
                         <label for="">Situação do Carro</label>
                         <input type="text" value="{{ isset($car) ? $car->car_situation : null }}" class="form-control"
-                            name="car_situation">
+                            name="car_situation" required>
                     </div>
                     <div class="col-sm-s">
                         <label for="">Tipo de Combustível</label>
                         <input type="text" value="{{ isset($car) ? $car->fuel : null }}" class="form-control"
-                            name="fuel">
+                            name="fuel" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="">Fotos do Carro</label>
+                        <input type="file" class="form-control" name="images[]" placeholder="imagens" multiple>
                     </div>
                 </div>
+                <br />
+                <br />
+                <table class="table table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Arquivo</th>
+                            <th scope="col">Data de Criação</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($car->documents as $document)
+                            <tr>
+                                <th scope="row">{{ $document->title }}</th>
+                                <th scope="row">{{ $document->created_at }}</th>
+                                <th scope="row">
+                                    <a href="{{ route('cars.edit', $car->id) }}" title="Remover"
+                                        class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+
+                                </th>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 <br>
                 <div class="form-group" style="text-align: end;">
                     <button type="submit" class="btn btn-success">Atualizar</button>
