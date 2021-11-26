@@ -77,10 +77,7 @@
                 </div>
                 <div class="form-group" style="text-align: end;">
                     <button type="submit" class="btn btn-outline-success btn-md">Atualizar</button>
-                </div>
-                <div class="col-sm-12" style="text-align: end;">
                     <a href="{{ route('customers.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
-                    </a>
                 </div>
             </form>
         </div>
