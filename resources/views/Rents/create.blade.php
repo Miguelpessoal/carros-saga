@@ -74,7 +74,7 @@
                 </div>
                 <br>
                 <div class="col-sm-12" style="text-align: end;">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-outline-success btn-md">Cadastrar</button>
                 </div>
                 <br>
                 <div class="  form-group" style="text-align: end;">
