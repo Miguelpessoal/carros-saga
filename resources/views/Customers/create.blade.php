@@ -75,7 +75,11 @@
                     </div>
                 </div>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
+                </div>
+                <div class="col-sm-12" style="text-align: end;">
+                    <a href="{{ route('customers.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
+                    </a>
                 </div>
             </form>
         </div>

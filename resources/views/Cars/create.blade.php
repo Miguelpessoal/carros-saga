@@ -105,7 +105,10 @@
                 </div>
                 <br>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
+                </div>
+                <div class="  form-group" style="text-align: end;">
+                    <a href="{{ route('cars.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
                 </div>
             </form>
         </div>

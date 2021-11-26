@@ -28,17 +28,17 @@ Route::namespace('App\Http\Controllers')->middleware([
 
     Route::view('/', 'welcome');
 
-    Route::resource('companies', 'CompanyController');
+    Route::resource('companies', 'CompanyController')->middleware('auth');
 
-    Route::resource('customers', 'CustomerController');
+    Route::resource('customers', 'CustomerController')->middleware('auth');
 
-    Route::resource('cars', 'CarController');
+    Route::resource('cars', 'CarController')->middleware('auth');
 
-    Route::resource('cars.rents', 'RentController')->except('index', 'show', 'edit', 'destroy');
+    Route::resource('cars.rents', 'RentController')->except('index', 'show', 'edit', 'destroy')->middleware('auth');
 
-    Route::resource('rents', 'RentController')->only('index', 'edit', 'destroy');
+    Route::resource('rents', 'RentController')->only('index', 'edit', 'destroy')->middleware('auth');
 
-    Route::resource('documents', 'DocumentController')->only('destroy');
+    Route::resource('documents', 'DocumentController')->only('destroy')->middleware('auth');
 
     Route::view('home', 'home')->name('home')->middleware('auth');
 });

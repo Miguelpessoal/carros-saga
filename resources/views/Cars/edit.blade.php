@@ -106,7 +106,10 @@
                 <br />
                 <br>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-success">Atualizar</button>
+                    <button type="submit" class="btn btn-outline-success btn-md">Atualizar</button>
+                </div>
+                <div class="  form-group" style="text-align: end;">
+                    <a href="{{ route('cars.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
                 </div>
             </form>
             <table class="table table">
