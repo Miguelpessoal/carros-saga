@@ -65,10 +65,12 @@
                             class="btn btn-outline-success btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
-                        <a href="{{ route('cars.rents.create', $car) }} " title="Alugar"
-                            class="btn btn-outline-info btn-sm">
-                            <i class="fas fa-comments-dollar"></i>
-                        </a>
+                        @if ($car->isAvailable)
+                            <a href="{{ route('cars.rents.create', $car) }} " title="Alugar"
+                                class="btn btn-outline-info btn-sm">
+                                <i class="fas fa-comments-dollar"></i>
+                            </a>
+                        @endif
                         <div class="col-sm-12">
                             <form action={{ route('cars.destroy', $car->id) }} method="post">
                                 <button onclick="return confirm('Deseja realmente deletar?');" method="post" type="submit"

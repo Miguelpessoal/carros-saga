@@ -19,6 +19,7 @@ class RentController extends Controller
 
     public function create(Car $car)
     {
+
         $customers = Customer::all();
 
         return view('Rents.create', compact('customers', 'car'));
@@ -31,6 +32,9 @@ class RentController extends Controller
         $formData['car_id'] = $car->id;
 
         $formData['finished'] = $request->has('finished');
+        if (!$car->isAvailable) {
+            return redirect()->route('rents.index', $car)->with('aviso', 'Carro indisponível');
+        }
 
         Rent::create($formData);
 

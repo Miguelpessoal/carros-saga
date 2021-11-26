@@ -49,7 +49,7 @@
         <li class="list-group-item">Tipo de combustível: {{ $car->fuel }}</li>
 
         <div class="col-sm-12" style="text-align: end;">
-            <a href="{{ route('cars.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
+            <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
             </a>
         </div>
     </ul>

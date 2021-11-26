@@ -21,7 +21,7 @@
         <li class="list-group-item">Número de Telefone: {{ $company->phone }}</li>
         <li class="list-group-item">E-mail: {{ $company->email }}</li>
         <div class="col-sm-12" style="text-align: end;">
-            <a href="{{ route('companies.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
+            <a href="{{ route('companies.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
             </a>
         </div>
     </ul>

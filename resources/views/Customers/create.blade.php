@@ -78,7 +78,7 @@
                     <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
                 </div>
                 <div class="col-sm-12" style="text-align: end;">
-                    <a href="{{ route('customers.index') }}" value="Back" class="btn btn-outline-dark btn-md">Back</a>
+                    <a href="{{ route('customers.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
                     </a>
                 </div>
             </form>

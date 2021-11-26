@@ -96,6 +96,11 @@ class CarController extends Controller
 
     public function destroy(Car $car)
     {
+        if ($car->rents()->count()) {
+            return redirect()
+                ->route('cars.index')
+                ->with('aviso', 'Carro não pode ser excluído pois está alugado.');
+        }
         $car->delete();
         return redirect()
             ->route('cars.index')
