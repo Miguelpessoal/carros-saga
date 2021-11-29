@@ -53,6 +53,11 @@ class RentController extends Controller
         $formData['finished'] = $request->has('finished');
 
         $rent->update($formData);
+
+        $rent->car()->update([
+            'km' => $request->km_finish
+        ]);
+
         return redirect()
             ->route('rents.index')
             ->with('mensagem', 'Atualizado com sucesso!');

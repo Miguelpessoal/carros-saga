@@ -10,3 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Models\Tenant;
+use Illuminate\Support\Facades\Route;
+
+Route::get('foo', function () {
+    $tenant = Tenant::create([
+        'id' => 'foo',
+    ]);
+    $tenant->domains()->create(['domain' => 'foo']);
+});

@@ -8,11 +8,20 @@ use Tests\TestCase;
 class CustomerTest extends TestCase
 {
     use RefreshTenantDatabase;
-
-    public function testExample()
+    /**
+     * A basic unit test example.
+     *
+     * @test
+     */
+    public function only_logged_in_users_can_see_customers_list()
     {
-        $response = $this->get('/');
+        $this->get('/customers')
+            ->assertRedirect('/login');
+    }
 
-        $response->assertStatus(200);
+    public function only_logged_in_users_can_see_cars_list()
+    {
+        $this->get('/cars')
+            ->assertRedirect('/login');
     }
 }

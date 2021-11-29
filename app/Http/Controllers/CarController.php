@@ -27,8 +27,8 @@ class CarController extends Controller
 
     public function store(StoreCarRequest $request, UploadFileService $uploadFileService)
     {
-
-        foreach ($request->file('images') as $image) {
+        $files = $request->file('images') ?? [];
+        foreach ($files as $image) {
             $filePath = $uploadFileService->upload($image, 'cars');
 
             if (!$filePath) {
