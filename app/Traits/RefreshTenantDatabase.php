@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 use App\Models\Tenant;
+use Illuminate\Support\Str;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\File;
 
 trait RefreshTenantDatabase
@@ -42,9 +44,23 @@ trait RefreshTenantDatabase
 
     public function initializeTenancy()
     {
-        $tenant = Tenant::first();
+        $tenant = Tenant::create([
+            'id' => 'tenant',
+            'tenancy_db_name' => 'tenant.database.sqlite',
+            'tenancy_create_database' => false,
+        ]);
+
+        $tenant->domains()->create([
+            'domain' => 'tenant',
+        ]);
 
         tenancy()->initialize($tenant);
+
+        config(['app.url' => "http://tenant.localhost"]);
+
+        /** @var UrlGenerator */
+        $url = url();
+        $url->forceRootUrl("http://tenant.localhost");
 
         $this->refreshTenantTestDatabase($tenant);
     }
@@ -54,7 +70,7 @@ trait RefreshTenantDatabase
         $directories = File::directories(base_path('storage'));
 
         foreach ($directories as $directory) {
-            if (strcontains(substr($directory, strrpos($directory, '/') + 1, 11), 'tenancy')) {
+            if (Str::contains(substr($directory, strrpos($directory, '/') + 1, 11), 'tenancy')) {
                 File::deleteDirectory($directory);
             }
         }

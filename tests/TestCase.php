@@ -2,17 +2,18 @@
 
 namespace Tests;
 
-use DatabaseTestingSeeder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Traits\RefreshDatabase;
+use App\Traits\RefreshTenantDatabase;
+use Database\Seeds\DatabaseTestingSeeder;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, RefreshDatabase;
 
-    protected $seed = true;
+    // protected $seed = true;
 
-    protected $seeder = DatabaseTestingSeeder::class;
+    // protected $seeder = DatabaseTestingSeeder::class;
 
     protected $connectionsToTransact = ['sqlite'];
 
@@ -21,6 +22,10 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         $uses = array_flip(class_uses_recursive(static::class));
+
+        if (isset($uses[RefreshDatabase::class])) {
+            $this->refreshDatabase();
+        }
 
         if (isset($uses[RefreshTenantDatabase::class])) {
             $this->initializeTenancy();
