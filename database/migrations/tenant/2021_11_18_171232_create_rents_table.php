@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateRentsTable extends Migration
 {
     public function up()
@@ -22,6 +23,7 @@ class CreateRentsTable extends Migration
             $table->bigInteger('km_finish')->nullable();
             $table->boolean('finished');
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

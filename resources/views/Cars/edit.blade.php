@@ -104,10 +104,7 @@
                 <br />
                 <br />
                 <br>
-                <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-outline-success btn-md">Atualizar</button>
-                    <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
-                </div>
+
             </form>
             <table class="table table">
                 <thead class="thead-dark">

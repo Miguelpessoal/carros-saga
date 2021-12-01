@@ -43,6 +43,7 @@ class RentController extends Controller
 
     public function edit(Rent $rent)
     {
+
         return view('Rents.edit', compact('rent'));
     }
 
@@ -65,6 +66,7 @@ class RentController extends Controller
 
     public function destroy(Rent $rent)
     {
+        $rent = Rent::find($rent->id);
         $rent->delete();
         return redirect()
             ->route('cars.index')

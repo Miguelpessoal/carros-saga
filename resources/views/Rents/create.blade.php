@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">KM Atual</label>
                             <input type="text" value="{{ isset($rent) ? $rent->km_traveled : null }}"
@@ -51,14 +51,7 @@
                                 name="km_finish">
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group" hidden>
-                            <label for="">Finalizado</label>
-                            <input type="checkbox" value="{{ isset($rent) ? $rent->finished : null }}"
-                                class="form-control" name="finished">
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Descrição</label>
                             <input type="text" value="{{ isset($rent) ? $rent->description : null }}"
@@ -75,9 +68,6 @@
                 <br>
                 <div class="col-sm-12" style="text-align: end;">
                     <button type="submit" class="btn btn-outline-success btn-md">Alugar</button>
-                </div>
-                <br>
-                <div class="  form-group" style="text-align: end;">
                     <a href="{{ route('rents.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
                 </div>
             </form>

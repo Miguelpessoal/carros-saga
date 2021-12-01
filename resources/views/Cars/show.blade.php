@@ -7,8 +7,6 @@
 @stop
 
 @section('content')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <div class="container">
         <div id="carouselExampleCaptions" class="carousel slide d-f" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -116,7 +114,6 @@
             </div>
             <br>
             <div class="form-group" style="text-align: end;">
-                <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
                 <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
             </div>
         </div>

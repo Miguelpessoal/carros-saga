@@ -16,15 +16,15 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Data do aluguel</label>
-                            <input type="date" value="{{ isset($rent) ? $rent->rent_date : null }}" class="form-control"
-                                name="rent_date" required>
+                            <input type="date" value="{{ isset($rent) ? $rent->rentDateFormate : null }}"
+                                class="form-control" name="rent_date" required>
 
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Data prevista para devolução</label>
-                            <input type="date" value="{{ isset($rent) ? $rent->forecast_devolution_date : null }}"
+                            <input type="date" value="{{ isset($rent) ? $rent->forecastDevolutionFormate : null }}"
                                 class="form-control" name="forecast_devolution_date" required>
                         </div>
                     </div>
@@ -54,7 +54,8 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Finalizado</label>
-                            <input type="checkbox" class="form-control" name="finished" id="checkbox">
+                            <input type="checkbox" value="{{ isset($rent) ? $rent->finished : null }}"
+                                class="form-control" name="finished">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -71,9 +72,7 @@
                 </div>
                 <br>
                 <div class="col-sm-12" style="text-align: end;">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
-                </div>
-                <div class="  form-group" style="text-align: end;">
+                    <button type="submit" class="btn btn-outline-success btn-md">Atualizar</button>
                     <a href="{{ route('rents.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
                 </div>
             </form>

@@ -39,13 +39,13 @@ class TenantCommands extends Command
     public function handle()
     {
         $tenant = Tenant::create([
-            'id' => 'empresa2',
-            'tenancy_db_name' => 'empresa2',
+            'id' => 'bar',
+            'tenancy_db_name' => 'bar',
         ]);
 
         tenancy()->central(function () use ($tenant) {
             $tenant->domains()->create([
-                'domain' => 'empresa2',
+                'domain' => 'bar',
             ]);
         });
     }
