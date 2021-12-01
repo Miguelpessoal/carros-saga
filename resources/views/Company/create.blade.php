@@ -9,14 +9,19 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action={{ route('companies.store') }} method="post">
+            <form name="myForm" action={{ route('companies.store') }} method="post" onsubmit="return validateFormInput()"
+                id="formStore">
                 @csrf
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="form-group">
+                        <div class="form-group has-validation">
                             <label for="">Nome Social</label>
                             <input type="text" value="{{ isset($company) ? $company->social_reason : null }}"
                                 name="social_reason" class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -24,6 +29,8 @@
                             <label for="">Nome Fantasia</label>
                             <input type="text" value="{{ isset($company) ? $company->fantasy_name : null }}"
                                 name="fantasy_name" class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -31,6 +38,8 @@
                             <label for="">CNPJ</label>
                             <input type="text" value="{{ isset($company) ? $company->cnpj : null }}" name="cnpj"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,10 +86,31 @@
                     </div>
                 </div>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-md"
+                        onclick="return validateFormInput()">Cadastrar</button>
                     <a href="{{ route('companies.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
                 </div>
             </form>
         </div>
     </div>
+
+    {{-- JavaScript --}}
+    <script>
+        function validateFormInput() {
+            $('#formStore :input').each((key, element) => {
+                if ($(element).prop('required')) {
+                    $(element).addClass('is-invalid')
+                    $('.invalid-feedback').text('Campo obrigatório')
+                }
+            });
+            $('#formStore :input').on('keyup', function(e) {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+                console.log($(this).closet('.form-group .valid-feedback'))
+                // $(this).find('.valid-feedback').text('Campo válido')
+            });
+
+            let input = document.forms["myForm"]["social_reason"].value;
+
+        }
+    </script>
 @stop
