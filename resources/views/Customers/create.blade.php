@@ -3,7 +3,7 @@
 @section('title', 'Clientes Home Page')
 
 @section('content_header')
-    <h1 class="m-0 text-dark text-center"><strong>Gerenciamento de clientes:</strong></h1>
+    <h1 class="m-0 text-dark text-center"><strong>Cadastrar Cliente</strong></h1>
 @stop
 
 @section('content')

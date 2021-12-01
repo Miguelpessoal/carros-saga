@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content_header')
-    <h1 class="m-0 text-dark text-center"><strong>Gerenciamento de empresas:</strong></h1>
+    <h1 class="m-0 text-dark text-center"><strong>Cadastrar Empresa</strong></h1>
 @stop
 
 @section('content')
