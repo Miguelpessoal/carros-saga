@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-    <h1 class="text-center"><strong>Todos os Carros</strong></h1>
+    <h1 class="text-center"><strong>Carros</strong></h1>
     <div class="col-sm-12" style="text-align: end;">
         <a href="/cars/create" class="btn btn-outline-primary btn-sm">
             <i class="fas fa-plus"></i>

@@ -16,16 +16,16 @@ class StoreCarRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'brand' => 'required|max:255',
-            'color' => 'required|max:255',
+            'name' => 'required|string|max:255',
+            'brand' => 'required|string|max:255',
+            'color' => 'required|string|max:255',
             'board' => 'required|unique:cars,board|max:255',
             'year' => 'required|numeric|max:9999',
             'km' => 'required|numeric',
             'value' => 'required|numeric',
-            'insurance_company' => 'max:255',
-            'car_situation' => 'required|max:255',
-            'fuel' => 'required|max:20',
+            'insurance_company' => 'string|max:255',
+            'car_situation' => 'string|required|max:255',
+            'fuel' => 'string|required|max:20',
             'safe' => 'sometimes|nullable',
             'image' => 'nullable|image'
         ];
@@ -35,8 +35,11 @@ class StoreCarRequest extends FormRequest
     {
         return [
             'name.required' => 'Informe o modelo',
+            'name.string' => 'Informe um modelo válido',
             'brand.required' => 'Informe a marca',
+            'brand.string' => 'Informe uma marca válida',
             'color.required' => 'Informe a cor',
+            'color.string' => 'Informe uma cor válida',
             'board.required' => 'Informe a placa',
             'board.unique' => 'A placa informada já existe',
             'year.required' => 'Informe um ano',
@@ -47,7 +50,9 @@ class StoreCarRequest extends FormRequest
             'value.required' => 'Informe o valor',
             'value.numeric' => 'Informe um valor valido',
             'car_situation.required' => 'Informe a situação do veículo',
+            'car_situation.string' => 'Informe uma situação válida',
             'fuel.required' => 'Informe o tipo de combustivel',
+            'fuel.string' => 'Informe um tipo de combustivel válido',
         ];
     }
 }

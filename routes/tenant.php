@@ -24,6 +24,7 @@ Route::namespace('App\Http\Controllers')->middleware([
     InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
+
     Auth::routes();
 
     Route::view('/', 'welcome');

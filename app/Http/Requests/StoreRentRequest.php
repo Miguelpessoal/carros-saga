@@ -24,6 +24,7 @@ class StoreRentRequest extends FormRequest
     {
         return [
             'rent_date.required' => 'Informe uma data de aluguel',
+            'rent_date.date' => 'Informe uma data válida',
             'customer_id' => 'Informe um cliente',
             'forecast_devolution_date.required' => 'Informe a data prevista',
             'forecast_devolution_date.date' => 'Informe uma data válida',

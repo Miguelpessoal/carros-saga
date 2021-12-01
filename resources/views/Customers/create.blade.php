@@ -20,17 +20,24 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
+                        <label for="">Tipo de Pessoa</label>
+                        <select class="form-control" id="typePerson">
+                            <option value="0" selected>Pessoa Física</option>
+                            <option value="1">Pessoa Jurídica</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4" id="div_cpf">
                         <div class="form-group">
                             <label for="">CPF</label>
-                            <input type="text" value="{{ isset($customer) ? $customer->cpf : null }}" name="cpf"
+                            <input type="text" value="{{ isset($customer) ? $customer->cpf : null }}" name="cpf" id="cpf"
                                 class="form-control">
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" id="div_cnpj" hidden>
                         <div class="form-group">
                             <label for="">CNPJ</label>
                             <input type="text" value="{{ isset($customer) ? $customer->cnpj : null }}" name="cnpj"
-                                class="form-control">
+                                id="cnpj" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -81,4 +88,20 @@
             </form>
         </div>
     </div>
+@section('js')
+    {{-- JavaScript --}}
+    <script>
+        $(document).ready(function() {
+            $('#typePerson').change(function() {
+                if ($(this).val() == 1) {
+                    $('#div_cnpj').attr('hidden', false);
+                    $('#div_cpf').attr('hidden', true);
+                } else {
+                    $('#div_cpf').attr('hidden', false);
+                    $('#div_cnpj').attr('hidden', true);
+                }
+            });
+        });
+    </script>
+@endsection
 @stop

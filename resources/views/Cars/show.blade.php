@@ -3,113 +3,7 @@
 @section('title', 'Adicionar novo Carro')
 
 @section('content_header')
-    <h1 class="text-center"><strong>Adicionar Carro</strong></h1>
-@stop
-
-@section('content')
-    @if (session('aviso'))
-        <div class="alert alert-danger">
-            <p>{{ session('aviso') }}</p>
-        </div>
-    @endif
-    <div class="card">
-        <div class="card-body">
-            <form action={{ route('cars.store') }} method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Modelo</label>
-                            <input type="text" value="{{ $car->name }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Marca</label>
-                            <input type="text" value="{{ $car->brand }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Cor</label>
-                            <input type="text" value="{{ $car->color }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Placa</label>
-                            <input type="text" value="{{ $car->board }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Ano</label>
-                            <input type="text" value="{{ $car->year }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Quilometragem</label>
-                            <input type="text" value="{{ $car->km }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Valor</label>
-                            <input type="text" value="{{ $car->value }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Assegurado</label>
-                            <input type="checkbox" value="{{ $car->safe }}" class="form-control" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">Nome da Asseguradora</label>
-                            <input type="text" value="{{ $car->insurance_company }}"
-                                class="form-control" readonly>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label for="">Situação do Carro</label>
-                        <input type="text" value="{{ $car->car_situation }}" class="form-control" readonly>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="">Tipo de Combustível</label>
-                        <input type="text" value="{{ $car->fuel }}" class="form-control" readonly>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="">Fotos do Carro</label>
-                        <input required type="file" class="form-control" name="images[]" placeholder="imagens" multiple>
-                    </div>
-                </div>
-                <br>
-                <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
-                    <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
-                </div>
-            </form>
-        </div>
-    </div>
-@stop
-
-
-@extends('adminlte::page')
-
-@section('title', 'Visualizar Carro')
-
-@section('content_header')
-    <h1 class="text-center"><strong>Visualizando:</strong> {{ $car->name }}</h1>
+    <h1 class="text-center"><strong>{{ $car->name }}</strong></h1>
 @stop
 
 @section('content')
@@ -140,27 +34,102 @@
             </button>
         </div>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">Código: {{ $car->id }}</li>
-        <li class="list-group-item">Nome: {{ $car->name }}</li>
-        <li class="list-group-item">Marca: {{ $car->brand }}</li>
-        <li class="list-group-item">Color: {{ $car->color }}</li>
-        <li class="list-group-item">Placa: {{ $car->blade }}</li>
-        <li class="list-group-item">Ano: {{ $car->year }}</li>
-        <li class="list-group-item">KM: {{ $car->km }}</li>
-        <li class="list-group-item">Valor: {{ $car->value }}</li>
-        <li class="list-group-item">Assegurado: {{ $car->safe }}</li>
-        <li class="list-group-item">Asseguradora: {{ $car->insurance_company }}</li>
-        <li class="list-group-item">Situação do carro: {{ $car->car_situation }}</li>
-        <li class="list-group-item">Tipo de combustível: {{ $car->fuel }}</li>
-
-        <div class="col-sm-12" style="text-align: end;">
-            <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
-            </a>
+    @if (session('aviso'))
+        <div class="alert alert-danger">
+            <p>{{ session('aviso') }}</p>
         </div>
-    </ul>
+    @endif
+    <div class="card">
+        <div class="card-body">
+            @csrf
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Modelo</label>
+                        <input type="text" value="{{ $car->name }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Marca</label>
+                        <input type="text" value="{{ $car->brand }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Cor</label>
+                        <input type="text" value="{{ $car->color }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Placa</label>
+                        <input type="text" value="{{ $car->board }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Ano</label>
+                        <input type="text" value="{{ $car->year }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Quilometragem</label>
+                        <input type="text" value="{{ $car->km }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Valor</label>
+                        <input type="text" value="{{ $car->value }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Assegurado</label>
+                        <input type="checkbox" class="form-control" name="safe" id="checkbox">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Nome da Asseguradora</label>
+                        <input type="text" value="{{ $car->insurance_company }}" class="form-control" readonly>
+                    </div>
+                </div>
 
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Situação do Carro</label>
+                    <input type="text" value="{{ $car->car_situation }}" class="form-control" readonly>
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Tipo de Combustível</label>
+                    <input type="text" value="{{ $car->fuel }}" class="form-control" readonly>
+                </div>
+            </div>
+            <br>
+            <div class="form-group" style="text-align: end;">
+                <button type="submit" class="btn btn-outline-primary btn-md">Cadastrar</button>
+                <a href="{{ route('cars.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const car = @json($car)
+    </script>
+    <script>
+        const checkBoxElement = document.querySelectorAll("#checkbox")[0]
+
+        car.safe ? checkBoxElement.checked = true : ''
+    </script>
 
     {{-- JavaScript --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
