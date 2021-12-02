@@ -31,6 +31,8 @@
                                 name="fantasy_name" class="form-control" required>
                             <div class="invalid-feedback">
                             </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -39,6 +41,8 @@
                             <input type="text" value="{{ isset($company) ? $company->cnpj : null }}" name="cnpj"
                                 class="form-control" required>
                             <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
                             </div>
                         </div>
                     </div>
@@ -49,14 +53,21 @@
                             <label for="">Rua</label>
                             <input type="text" value="{{ isset($company) ? $company->address : null }}" name="address"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
-
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="">Cidade/Estado</label>
                             <input type="text" value="{{ isset($company) ? $company->district : null }}" name="district"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -64,6 +75,10 @@
                             <label for="">Número do Endereço</label>
                             <input type="integer" value="{{ isset($company) ? $company->address_number : null }}"
                                 name="address_number" class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,6 +89,10 @@
                             <label for="">Telefone</label>
                             <input type="text" value="{{ isset($company) ? $company->phone : null }}" name="phone"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -82,6 +101,10 @@
                             <label for="">Email</label>
                             <input type="text" value="{{ isset($company) ? $company->email : null }}" name="email"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,15 +121,14 @@
     <script>
         function validateFormInput() {
             $('#formStore :input').each((key, element) => {
-                if ($(element).prop('required')) {
+                if ($(element).prop('required') && $(element).val() == '') {
                     $(element).addClass('is-invalid')
                     $('.invalid-feedback').text('Campo obrigatório')
+                } else {
+                    $(element).removeClass('is-invalid')
+                    $(element).addClass('is-valid')
+                    $('.valid-feedback').text('Campo preenchido')
                 }
-            });
-            $('#formStore :input').on('keyup', function(e) {
-                $(this).removeClass('is-invalid').addClass('is-valid');
-                console.log($(this).closet('.form-group .valid-feedback'))
-                // $(this).find('.valid-feedback').text('Campo válido')
             });
 
             let input = document.forms["myForm"]["social_reason"].value;

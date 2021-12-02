@@ -14,7 +14,8 @@
     @endif
     <div class="card">
         <div class="card-body">
-            <form action={{ route('cars.update', $car->id) }} method="post" enctype="multipart/form-data">
+            <form name="myForm" action={{ route('cars.update', $car->id) }} method="post" enctype="multipart/form-data"
+                id="formUpdate" onclick="validateFormInput()">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -101,6 +102,11 @@
                         <input type="file" class="form-control" name="images[]" placeholder="imagens" multiple>
                     </div>
                 </div>
+                <div class="form-group" style="text-align: end;">
+                    <button onsubmit="validateFormInput()" type="submit" class="btn btn-outline-success btn-md"">Atualizar</button>
+                                                                  <a href=" {{ route('cars.index') }}" value="Voltar"
+                        class="btn btn-outline-dark btn-md">Voltar</a>
+                </div>
                 <br />
                 <br />
                 <br>
@@ -150,5 +156,23 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+    <script>
+        function validateFormInput() {
+            $('#formUpdate :input').each((key, element) => {
+                if ($(element).prop('required') && $(element).val() == '') {
+                    $(element).addClass('is-invalid')
+                    $('.invalid-feedback').text('Campo obrigatório')
+                }
+            });
+            $('#formUpdate :input').on('keyup', function(e) {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+                console.log($(this).closet('.form-group .valid-feedback'))
+                $(this).closet('.form-group .valid-feedback').text('Campo válido')
+            });
+
+            let input = document.forms["myForm"]["name"].value;
+
+        }
     </script>
 @stop

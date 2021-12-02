@@ -82,19 +82,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="">Valor</label>
                         <input type="text" value="{{ $car->value }}" class="form-control" readonly>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="">Assegurado</label>
-                        <input type="checkbox" class="form-control" name="safe" id="checkbox">
-                    </div>
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="">Nome da Asseguradora</label>
                         <input type="text" value="{{ $car->insurance_company }}" class="form-control" readonly>

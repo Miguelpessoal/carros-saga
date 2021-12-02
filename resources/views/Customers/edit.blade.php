@@ -9,7 +9,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action={{ route('customers.update', $customer->id) }} method="post">
+            <form name="myForm" action={{ route('customers.update', $customer->id) }} method="post" id="formUpdate"
+                onsubmit="return validateFormInput()">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -18,6 +19,11 @@
                             <label for="">Nome</label>
                             <input type="text" value="{{ isset($customer) ? $customer->name : null }}" name="name"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -41,6 +47,10 @@
                             <label for="">Rua</label>
                             <input type="text" value="{{ isset($customer) ? $customer->address : null }}" name="address"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -48,6 +58,10 @@
                             <label for="">Cidade/Estado</label>
                             <input type="text" value="{{ isset($customer) ? $customer->district : null }}" name="district"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -55,16 +69,23 @@
                             <label for="">Número do Endereço</label>
                             <input type="integer" value="{{ isset($customer) ? $customer->address_number : null }}"
                                 name="address_number" class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-
                         <div class="form-group">
                             <label for="">Telefone</label>
                             <input type="text" value="{{ isset($customer) ? $customer->phone : null }}" name="phone"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -72,14 +93,40 @@
                             <label for="">Email</label>
                             <input type="text" value="{{ isset($customer) ? $customer->email : null }}" name="email"
                                 class="form-control" required>
+                            <div class="invalid-feedback">
+                            </div>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-outline-success btn-md">Atualizar</button>
+                    <button type="submit" class="btn btn-outline-success btn-md"
+                        onclick="return validateFormInput()">Atualizar</button>
                     <a href="{{ route('customers.index') }}" value="Voltar" class="btn btn-outline-dark btn-md">Voltar</a>
                 </div>
             </form>
         </div>
     </div>
+@section('js')
+    {{-- JavaScript --}}
+    <script>
+        function validateFormInput() {
+            $('#formUpdate :input').each((key, element) => {
+                if ($(element).prop('required') && $(element).val() == '') {
+                    $(element).addClass('is-invalid')
+                    $('.invalid-feedback').text('Campo obrigatório')
+                }
+            });
+            $('#formUpdate :input').on('keyup', function(e) {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+                console.log($(this).closet('.form-group .valid-feedback'))
+                // $(this).find('.valid-feedback').text('Campo válido')?
+            });
+
+            let input = document.forms["myForm"]["name"].value;
+
+        }
+    </script>
+@endsection
 @stop
