@@ -19,6 +19,7 @@ class RentController extends Controller
 
     public function create(Car $car)
     {
+
         $customers = Customer::all();
 
         return view('Rents.create', compact('customers', 'car'));
@@ -31,6 +32,9 @@ class RentController extends Controller
         $formData['car_id'] = $car->id;
 
         $formData['finished'] = $request->has('finished');
+        if (!$car->isAvailable) {
+            return redirect()->route('rents.index', $car)->with('aviso', 'Carro indisponível');
+        }
 
         Rent::create($formData);
 
@@ -39,6 +43,7 @@ class RentController extends Controller
 
     public function edit(Rent $rent)
     {
+
         return view('Rents.edit', compact('rent'));
     }
 
@@ -49,6 +54,11 @@ class RentController extends Controller
         $formData['finished'] = $request->has('finished');
 
         $rent->update($formData);
+
+        $rent->car()->update([
+            'km' => $request->km_finish
+        ]);
+
         return redirect()
             ->route('rents.index')
             ->with('mensagem', 'Atualizado com sucesso!');
@@ -56,6 +66,7 @@ class RentController extends Controller
 
     public function destroy(Rent $rent)
     {
+        $rent = Rent::find($rent->id);
         $rent->delete();
         return redirect()
             ->route('cars.index')

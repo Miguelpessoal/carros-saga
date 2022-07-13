@@ -12,7 +12,9 @@
         "fideloper/proxy": "^4.4",
         "jeroennoten/laravel-adminlte": "^3.7",
         "laravel/framework": "^6.20.26",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.6",
+        "laravellegends/pt-br-validator": "^8.0",
+        "stancl/tenancy": "^3.4"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",

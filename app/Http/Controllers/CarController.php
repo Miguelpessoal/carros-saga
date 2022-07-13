@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateCarRequest;
 use App\Models\Car;
 use App\Models\Customer;
 use App\Models\Document;
+use App\Services\UploadFileService;
 
 class CarController extends Controller
 {
@@ -24,26 +25,28 @@ class CarController extends Controller
         return view('Cars.create');
     }
 
-    public function store(StoreCarRequest $request)
+    public function store(StoreCarRequest $request, UploadFileService $uploadFileService)
     {
-        $formData = $request->validated();
-        
-        $formData['safe'] = $request->has('safe');
-        
-        $car = Car::create($formData);
+        $files = $request->file('images') ?? [];
+        foreach ($files as $image) {
+            $filePath = $uploadFileService->upload($image, 'cars');
 
-        if ($request->hasFIle('image') && $request->image->isValid()) {
-            $originalNameFile = $request->image->getClientOriginalName();
-            $imagePath = $request->image->store('cars','public');
-            
-            Document::create([
-                'car_id' => $car->id,
-                'path' => DIRECTORY_SEPARATOR .'storage'.DIRECTORY_SEPARATOR.$imagePath,
-                'title' => $originalNameFile,
+            if (!$filePath) {
+                return redirect()
+                    ->route('cars.create')
+                    ->with('aviso', 'Extensão inválida (apenas: jpg, jpeg, png, gif, pdf, docx, xls).');
+            }
+
+            $documents[] = new Document([
+                'path' => $uploadFileService->upload($image, 'cars'),
+                'title' => $image->getClientOriginalName(),
                 'document_type_id' => 2
             ]);
         }
 
+        $car = Car::create($request->validated());
+
+        $car->documents()->saveMany($documents ?? []);
 
         return redirect()->route('cars.index');
     }
@@ -58,25 +61,49 @@ class CarController extends Controller
     {
         return view('Cars.edit', compact('car'));
     }
-   
 
-    public function update(UpdateCarRequest $request, Car $car)
+
+    public function update(UpdateCarRequest $request, Car $car, UploadFileService $uploadFileService)
     {
         $formData = $request->validated();
-        
-        $formData['safe'] = $request->has('safe');
-        
+
+        $images = $request->file('images') ?? [];
+
+        foreach ($images as $image) {
+            $filePath = $uploadFileService->upload($image, 'cars');
+
+            if (!$filePath) {
+                return redirect()
+                    ->route('cars.create')
+                    ->with('aviso', 'Extensão inválida (apenas: jpg, jpeg, png, gif, pdf, docx, xls).');
+            }
+
+            $documents[] = new Document([
+                'path' => $uploadFileService->upload($image, 'cars'),
+                'title' => $image->getClientOriginalName(),
+                'document_type_id' => 2
+            ]);
+        }
+
+        $car->documents()->saveMany($documents ?? []);
+
         $car->update($formData);
+
         return redirect()
-        ->route('cars.index')
-        ->with('mensagem', 'Atualizado com sucesso!');
+            ->route('cars.index')
+            ->with('mensagem', 'Atualizado com sucesso!');
     }
 
     public function destroy(Car $car)
     {
-     $car->delete();
+        if ($car->rents()->count()) {
+            return redirect()
+                ->route('cars.index')
+                ->with('aviso', 'Carro não pode ser excluído pois está alugado.');
+        }
+        $car->delete();
         return redirect()
-        ->route('cars.index')
-        ->with('aviso', 'Carro removido com sucesso!');
+            ->route('cars.index')
+            ->with('aviso', 'Carro removido com sucesso!');
     }
 }

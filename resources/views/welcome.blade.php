@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="pt-br" class="h-100">
 
 <head>
     <meta charset="utf-8">
@@ -41,6 +41,7 @@
                 font-size: 3.5rem;
             }
         }
+
     </style>
 
 
@@ -65,16 +66,19 @@
             <p class="lead">
             <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/home') }}" class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Home</a>
-                    @else
-                   <a href="{{ route('login') }}" class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Login</a>
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Registrar</a>
-                    @endif
-                    @endauth
-                </div>
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ url('/home') }}"
+                                class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Home</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Login</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Registrar</a>
+                            @endif
+                        @endauth
+                    </div>
                 @endif
 
                 </p>

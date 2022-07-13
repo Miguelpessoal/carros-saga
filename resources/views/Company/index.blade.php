@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content_header')
-    <h1 class="text-center text-dark"><strong>Empresas incritas na corporação:</strong></h1>
+    <h1 class="text-center text-dark"><strong>Empresas Cadastradas</strong></h1>
     <div class="col-sm-12" style="text-align: end;">
         <a href="/companies/create/" class="btn btn-outline-primary btn-sm">
             <i class="fas fa-plus"></i>
